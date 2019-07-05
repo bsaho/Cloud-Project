@@ -94,7 +94,7 @@ db.close ()
 shelffURL="https://www.goodreads.com/book/review_counts.json?isbns="
 shelffURL2="&key=XXXXXX"
 shelfURL="https://www.goodreads.com/book/isbn?&format=json&isbn="
-shelfURL2="&user_id=19574855&key=bLh1UjYGmbHP4cdbCWGyIg"
+shelfURL2="&user_id=19574855&key=XXXXX"
 bestURL="http://api.nytimes.com/svc/books/v3/lists/"
 bestURL2=".json?sort-by=weeks-on-list&sort-order=DESC&api-key=XXXXXX"
 bestSearch="http://api.nytimes.com/svc/books/v3/lists/names.json?api-key=XXXXXX"
