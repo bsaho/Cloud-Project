@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <link rel="stylesheet" href="/static/css/reset.css?q=1280549780"
+   type="text/css" media="screen" charset="utf-8"/>
+
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	
+		
+
+    	<title>CIS*3210 Lab 6</title>
+    
+    	<!-- Bootstrap core CSS -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+    	<!-- Custom styles for this template -->
+    	<link href="css/cover.css" rel="stylesheet">
+    	
+	</head>
+
+  	<body id="wholeThing">
+    	<div class="site-wrapper" id="siteWrapper">
+			<div class="site-wrapper-inner">
+				<div class="cover-container">
+					<div class="inner cover">
+            			<h1 class="cover-heading">Lab 6</h1>
+                        <p> Bashir Saho, 0820860</p>
+						<p id="BasicExpl"> Can search for articles using the NYTimes API. If a search has already been performed the program will simply load the results from a private databse instead of calling the NYT API. Note: Slightly slow on API calls, depending on system. Please only search with alphanumeric characters or no result will be returned.</p>
+						
+            			<div class="form-group">
+						  <label for="userInput">Search String:</label>
+						  <input type="text" class="form-control" id="userInput">
+						</div>
+            
+            			
+
+            			<a class="btn btn-lg btn-default" id="RESTput">Search New York Times </a>
+
+            			
+            			<a class="btn btn-lg btn-default" href='http://127.0.0.1:5000/static' id="Pointless">Get Static File</a>
+
+            		</div>
+					
+					<div class="span7 center" id="TAExplanations">
+						<h2>Collapse</h2>
+						<p><strong>Note:</strong> </p>
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+							<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="text-primary">SQL Injection Explanation</a>
+							</h4>
+							</div>
+						<div id="collapse1" class="panel-collapse collapse in">
+						<div class="panel-body text-primary">Prevents sql injection by simply refusing to serve any queries that use either SQL syntax ("DROP TABLE"), or the names given to the columns within the table (e.g. "searchString"). Using these will yield no response. Given that both SQL syntax and table components are suitable idiosyncratic in naming (SQL is completely capitalized and column names are unlikely to be relevant to an NYT search) this will likely have a negligible to non-existent impact on legitimate searches.
+						</div>
+						</div>
+						</div>
+						<div class="panel panel-default">
+						<div class="panel-heading">
+						<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Lab 3 Notes</a>
+						</h4>
+						</div>
+						<div id="collapse2" class="panel-collapse collapse">
+						<div class="panel-body text-primary">Can search for articles using the NYTimes API. If a search has already been performed the program will simply load the results from a private databse instead of calling the NYT API. Note: Slightly slow on API calls, depending on system<</div>
+						</div>
+						</div>
+						<div class="panel panel-default">
+						<div class="panel-heading">
+						<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Lab 5/6 Explanation</a>
+						</h4>
+						</div>
+						<div id="collapse3" class="panel-collapse collapse">
+						<div class="panel-body text-primary" > To avoid the problem of grabbing the same cookies as other lab users all cookies were given idiosyncratic names to avoid this problem <br>
+						
+						For Lab 6: <br><ul><li>Cookies sent to Python and hashed . If cookies are changed then program will detect change and default to Red Minimalist theme,deleting altered cookie. Because the cookies can only take 4 possible values any editing will be noted, so salting the hash not required.<br></li>
+						<li>Simply refuse to service searches that use non-alphanumeric characters to restric user input to sensible (and safer values)<br></li>
+						<li>Fixed SQL injection defense by escaping and using tuples in addition to previous defenses.</li>
+						<li> The program has relatively few vulnerabilities since it is so pared of functionality the avenues for attack are limited.</li>
+						<li> If the program had accounts with various privileges saving the cookie of an administrator account log-in would allow you to get administrator privileges fradulently. However, our program has no administrator accounts and cookies interfere with purely cosmetic functions so the security risk posed is minimal to non-existent. Cookies are validated regardless. </li>
+						<li> Since all of the JSON input goes straight from the NYT database to being parsed with javascript and into a dialog with no execution there is no chance for someone to add malicious or duplicate code to the JSON file. </li>
+						<li> Since no user input is ever executed on the javascript side it isn't possible for the user to upload or execute arbitrary html code through the search function. However, if they were capable of doing so, one solution would have been to host content ona  different domain  (e.g. search.localhost:5000 vs localhost:5000/search), to prevent any code from affecting that data. This would also prevent the user from arbitrarily accessing those pages or running a query or command  by directly typing a url (e.g. localhost:5000/search=magic, localhost:5000/reset). Not a problem for this program </li>
+						<li> Program also allowed an infinite amount of queries, allowing someone to input as much data as they wanted into my SQL DB. Number now capped at 500, upon which the table is dropped, and recreated, avoiding infinite use/overload attacks.</li>
+						
+						</ul>
+						</div>
+						</div>
+						</div>
+
+						</div>
+						</div>
+					
+			
+          			<!-- Modal -->
+					<div class="modal fade" id="REST-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">Result of the ajax call:</h4>
+						  </div>
+						    <div class="modal-body" id="REST-modal-body">
+						    </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					
+					
+
+					<nav class="navbar navbar-default">
+
+
+					<div class="btn-group">
+					<button type="button" class="btn btn-danger navbar-btn" id="REDBtn"> Red Minimalist Background</button>
+					<button type="button" class="btn  navbar-btn" id="BLACKBtn">Black Marking Background</button>
+
+					<button type="button" class="btn btn-primary navbar-btn" id="BlueBGRN"> Red Marking Theme</button>
+					<button type="button" class="btn btn-success navbar-btn" id="GreenBGRN"> BlackMinimalist Theme</button>
+				
+					
+					</div>
+					</nav>
+
+
+          			<!---<div class="mastfoot">
+            			<div class="inner">
+              				<p>Cover template for Lab 3, code and concepts taken from template provided by Professor G. Klotz</p>
+            			</div>
+          			</div<!--->
+
+        		</div>
+      		</div>
+    	</div>
+
+    	<!-- Bootstrap core JavaScript
+    	================================================== -->
+    	<!-- Placed at the end of the document so the pages load faster -->
+    	<script src="js/jquery-1.11.3.js"></script>
+    	<script src="/js/bootstrap.min.js"></script>
+
+		<!-- Lab 2 -->
+		<script src="js/lab3b.js"></script>
+  	</body>
+</html>

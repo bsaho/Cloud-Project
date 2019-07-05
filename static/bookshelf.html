@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bookshelf</title>
+
+    <link rel="stylesheet" href="superhero_files/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="superhero_files/custom.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+ <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="https://bootswatch.com/" class="navbar-brand">Bookshelf</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+         
+          <ul class="nav nav-tabs">
+              
+          <li ><a href="http://127.0.0.1:5000" >Home</a></li>
+
+            <li >
+              <a href="http://127.0.0.1:5000/articles" >Article Search</a>
+            </li>
+             <li>
+              <a href="http://127.0.0.1:5000/bestsellers">Best-Seller List</a>
+            </li>
+            <li >
+              <a href="http://127.0.0.1:5000/reviews" >Book Reviews</a>
+            </li>
+
+            <li class="active">
+              <a href="http://127.0.0.1:5000/shelf" >Book Shelf</a>
+            </li>
+
+            <li >
+              <a href="http://127.0.0.1:5000/bsearch" >Book Search</a>
+            </li>
+           
+          </ul>
+         
+        </div>
+      </div>
+    </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+         <div class="page-header container">
+            <h1 id="navbar">Bookshelf</h1>
+            <a href="#" class="btn btn-danger" id="DestroyTable">Clear Shelf </a>
+            <!-- Single button -->
+            <div class="btn-group">
+              <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li ><a href="#" id='readButton'>Read</a></li>
+                <li><a href="#" id='readingButton'>Reading</a></li>
+                <li><a href="#" id='unreadButton'>Unread</a></li>
+                 <li><a href="#" id='allButton'>All</a></li>
+
+              </ul>
+            </div>
+
+          </div>
+     
+
+    <!-- Page Content -->
+    <div class="prog container">
+     <label><h1> Read Progress</h1> </label>
+      <div class="progress">
+
+        <div class="progress-bar progress-bar-success" style="width: 35%" id='readBooks'></div>
+        <div class="progress-bar progress-bar-warning" style="width: 20%" id='readingBooks'></div>
+        <div class="progress-bar progress-bar-danger" style="width: 10%" id='notRead'></div>
+      </div>
+        <div class="row jumbotron" id="gallery">
+
+            <div class="col-lg-12">
+                <h1 class="page-header" id="Booker">Book Gallery</h1>
+            </div>
+       <!--      <div class="panel panel-default col-lg-3 col-md-4 col-xs-6 thumb">
+                <div class="panel-image">
+                    <img src="http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_52cd36aac6bed_1.JPG" class="img-responsive center-block" />
+                    <label for="toggle-4"></label>
+                </div>
+                <input type="checkbox" id="toggle-4" checked class="panel-image-toggle">
+                <div class="panel-body">
+                    <h4>Show the Description by default!</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.</p>
+                </div>
+                <div class="panel-footer text-center">
+                    <a href="#download"><span class="glyphicon glyphicon-download"></span></a>
+                    <a href="#facebook"><span class="fa fa-facebook"></span></a>
+                    <a href="#twitter"><span class="fa fa-twitter"></span></a>
+                    <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div> -->
+
+        </div>
+
+        <hr>
+<div class="modal fade" id="moarDetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&close;</button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body" id="otherBooks">
+        <p>One fine body…</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="thumbnail/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="thumbnail/js/bootstrap.min.js"></script>
+    <script src="js/lab3b.js"></script>
+
+</body>
+
+</html>
