@@ -92,7 +92,7 @@ db.close ()
 
 
 shelffURL="https://www.goodreads.com/book/review_counts.json?isbns="
-shelffURL2="&key=bLh1UjYGmbHP4cdbCWGyIg"
+shelffURL2="&key=XXXXXX"
 shelfURL="https://www.goodreads.com/book/isbn?&format=json&isbn="
 shelfURL2="&user_id=19574855&key=bLh1UjYGmbHP4cdbCWGyIg"
 bestURL="http://api.nytimes.com/svc/books/v3/lists/"
@@ -103,11 +103,11 @@ listNames="http://api.nytimes.com/svc/books/v3/lists/names.json?api-key=XXXXXX"
 
 template="https://www.goodreads.com/book/review_counts.json?isbns=0812993543&key=bLh1UjYGmbHP4cdbCWGyIg"
 booksURL="https://api.nytimes.com/svc/books/v3/reviews.json?isbn="
-bookKey="&api-key=" + "VFJAYlfMuj1AYhZG5LUOMZs5FjktVrMZ"
+bookKey="&api-key=" + "XXXXXX"
 
 #code and concepts sourced from template provided by G. Klotz
 query2='bats'
-nytKey='VFJAYlfMuj1AYhZG5LUOMZs5FjktVrMZ'
+nytKey='XXXXXX'
 query= 'romney'
 pureUrl='http://api.nytimes.com/svc/search/v2/articlesearch.json?fq=' 
 url='http://api.nytimes.com/svc/search/v2/articlesearch.json?fq=' + query2 +'&page=0&sort=newest&api-key=' +nytKey
